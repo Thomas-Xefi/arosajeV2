@@ -3,7 +3,6 @@ import {useAuth} from "../context/AuthContext";
 import {Login} from "../screens/auth/Login";
 import {Register} from "../screens/auth/Register";
 import {Home} from "../screens/app/Home";
-import {Button} from "galio-framework";
 import {createStackNavigator} from "@react-navigation/stack";
 import {AppLayout} from "./AppLayout";
 import {useEffect, useState} from "react";

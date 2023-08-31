@@ -1,4 +1,3 @@
-import {Card, Block} from 'galio-framework'
 import {StyleSheet} from "react-native";
 import {Box, Text, Image} from "@gluestack-ui/themed";
 

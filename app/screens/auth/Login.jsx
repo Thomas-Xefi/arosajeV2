@@ -1,5 +1,4 @@
 import {Image, SafeAreaView, StyleSheet, View} from "react-native";
-import {theme, withGalio, GalioProvider} from 'galio-framework'
 import {useState} from "react";
 import {useAuth} from "../../context/AuthContext";
 import {

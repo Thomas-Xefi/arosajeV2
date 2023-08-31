@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {API_URL, useAuth} from "../../context/AuthContext";
 import * as SecureStore from "expo-secure-store";
 import axios from "axios";
-import {Text} from "galio-framework";
+import {Text} from '@gluestack-ui/themed'
 
 export function Account() {
     const {currentUser, authState} = useAuth()
@@ -10,7 +10,7 @@ export function Account() {
 
     return (
         <>
-            <Text h1>Account</Text>
+            <Text>Account</Text>
         </>
     )
 }
