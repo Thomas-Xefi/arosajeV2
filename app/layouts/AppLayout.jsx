@@ -24,7 +24,7 @@ export function AppLayout() {
             }}>
                 <Tab.Screen name="Home" component={Home} options={{
                     tabBarIcon: () => { return <Ionicons name="home-outline" size={28} color="black" /> },
-                    unmountOnBlur: true
+                    unmountOnBlur: true,
                 }} />
                 <Tab.Screen name="Ad" component={Ad} options={{
                     tabBarIcon: () => { return <Ionicons name="add-circle-outline" size={28} color="black" /> }

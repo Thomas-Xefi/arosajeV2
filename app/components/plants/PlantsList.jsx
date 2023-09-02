@@ -10,7 +10,8 @@ export const PlantsList = ({plants}) => {
             <FlatList
                 numColumns={2}
                 columnWrapperStyle={{justifyContent: 'space-between'}}
-                style={{marginTop: 8}}
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={{marginTop: 8}}
                 data={plants}
                 renderItem={({item}) => <PlantCard plant={item}/>} keyExtractor={item => item.id}
             />
