@@ -11,7 +11,7 @@ export function PlantDetails({route}) {
     const [plant, setPlant] = useState(route.params)
 
     const updateGuardian = async () => {
-        const result = await axios.put(`${API_URL}/plants/${plant.id}?includes=guardian`,
+        const result = await axios.put(`${API_URL}/plants/${plant.id}?includes=guardian,owner,status`,
             {
                 'guardian_id': user.id
             }
@@ -73,7 +73,8 @@ export function PlantDetails({route}) {
                                 ? <Text style={{fontWeight: 'bold', fontSize: 17}}>
                                     Plante gardée par {plant.guardian.firstname} {plant.guardian.lastname}
                                 </Text>
-                                : <Button backgroundColor={'#72c269'} borderRadius={16} onPress={updateGuardian}>
+                                : plant.owner.id !== user.id &&
+                                <Button backgroundColor={'#72c269'} borderRadius={16} onPress={updateGuardian}>
                                     <Text style={{color: '#fff'}}>Je veux garder la plante</Text>
                                 </Button>
                         }

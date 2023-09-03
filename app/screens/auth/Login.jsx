@@ -1,5 +1,5 @@
 import {Image, SafeAreaView, StyleSheet, View} from "react-native";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useAuth} from "../../context/AuthContext";
 import {
     AlertCircleIcon, Box,
@@ -26,6 +26,10 @@ export function Login() {
             console.log(result)
         }
     }
+
+    useEffect(() => {
+        login()
+    }, [])
     return (
         <>
             <SafeAreaView style={{margin: 16}}>

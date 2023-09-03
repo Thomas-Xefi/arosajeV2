@@ -14,7 +14,7 @@ export function Home() {
     const {user} = useAuth()
 
     const searchCall = async (search = '') => {
-        const response = await axios.post(`${API_URL}/plants/search?includes=guardian,status`,
+        const response = await axios.post(`${API_URL}/plants/search?includes=guardian,status,owner`,
             {
                 filters: [
                     {field: 'owner_id', operator: '!=', value: user?.id},
