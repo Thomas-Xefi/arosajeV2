@@ -6,12 +6,12 @@ import Ionicons from "react-native-vector-icons/Ionicons"
 import {useAuth} from "../context/AuthContext";
 import {Button, ButtonIcon, ButtonText} from "@gluestack-ui/themed";
 import {AccountLayout} from "./AccountLayout";
-import {SocialLayout} from "./SocialLayout";
+import {Conversations} from "../screens/app/Social/Conversations";
 
 export function AppLayout() {
     const Tab = createBottomTabNavigator()
 
-    const {user, onLogout} = useAuth()
+    const {user, countNotifications, onLogout} = useAuth()
 
     return (
         <>
@@ -30,9 +30,9 @@ export function AppLayout() {
                 <Tab.Screen name="Ad" component={Ad} options={{
                     tabBarIcon: () => { return <Ionicons name="add-circle-outline" size={28} color="black" /> }
                 }} />
-                <Tab.Screen name="Social" component={SocialLayout} options={{
-                    tabBarBadge: user && Object.keys(user).length > 0 && user.notifications_count,
-                    tabBarIcon: () => { return <Ionicons name="chatbubbles-outline" size={28} color="black" /> }
+                <Tab.Screen name={'Message'} component={Conversations} options={{
+                    tabBarBadge: countNotifications,
+                    tabBarIcon: () => { return <Ionicons name="chatbubbles-outline" size={28} color="black" /> },
                 }} />
                 <Tab.Screen name="Account" component={AccountLayout} options={{
                     tabBarIcon: () => { return <Ionicons name="person-circle-outline" size={28} color="black" /> }

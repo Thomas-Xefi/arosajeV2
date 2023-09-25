@@ -9,7 +9,7 @@ export function PlantCard({plant}) {
     return (
         <>
             <Box style={styles.card}>
-                <Image style={{alignSelf: 'center', height: 100, width: 100}} borderRadius="$md" source={{uri: 'https://picsum.photos/700'}}/>
+                <Image style={{alignSelf: 'center', height: 100, width: 100}} borderRadius="$md" source={{uri: plant.img_url}}/>
                 <Text style={{fontWeight: 'bold', fontSize: 17, marginTop: 10}}>{plant.name}</Text>
                 <View style={{flexDirection: 'row', justifyContent: 'space-between', marginTop: 5}}>
                     <Text style={{fontWeight: 'bold', fontSize: 19}}>

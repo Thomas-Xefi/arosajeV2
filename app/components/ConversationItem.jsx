@@ -1,31 +1,47 @@
 import {Image, View, StyleSheet} from "react-native";
-import {Text} from "@gluestack-ui/themed";
-import {useAuth} from "../context/AuthContext";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import {Pressable, Text} from "@gluestack-ui/themed";
+import {API_URL, useAuth} from "../context/AuthContext";
+import axios from "axios";
+import {useState} from "react";
 
 const Logo = require('../../assets/images/Logo.png');
 
-export function ConversationItem({conversation}) {
-    const {user} = useAuth()
+export function ConversationItem({conversation, markAsRead}) {
+    const {handleCountNotifications} = useAuth()
+    const [isRead, setIsRead] = useState(!!conversation.read_at);
 
-    console.log(conversation)
+    const handleMarkAsRead = async () => {
+        if (!isRead) {
+            const result = await markAsRead(conversation.id);
+            setIsRead(true)
+            console.log(result)
+            await handleCountNotifications()
+        }
+    }
 
     return (
         <>
-            <View style={styles.itemContainer}>
+            <Pressable style={styles.itemContainer} onPress={handleMarkAsRead}>
                 <Image source={Logo} style={styles.avatar}/>
                 <View style={styles.textContainer}>
-                    <Text style={styles.username}>
+                    <Text style={[styles.username, { fontWeight: isRead ? 'normal' : 'bold' }]}>
                         {
-                            conversation.guardian
+                            conversation.data.guardian
                         }
                     </Text>
                     <Text style={styles.lastMessage}>
                         {
-                            `Votre plante ${conversation.plant} vient d'être guardée`
+                            `Votre plante ${conversation.data.plant} vient d'être guardée`
                         }
                     </Text>
                 </View>
-            </View>
+                {isRead ? (
+                    <Ionicons name="mail-open-outline" size={28} color="green" />
+                ) : (
+                    <Ionicons name="mail-unread-outline" size={28} color="red" />
+                )}
+            </Pressable>
         </>
     )
 }

@@ -13,6 +13,7 @@ export const useAuth = () => {
 export const AuthProvider = ({children}) => {
     const [authState, setAuthState] = useState({token: '', authenticated: false});
     const [user, setUser] = useState({})
+    const [countNotifications, setCountNotifications] = useState(0)
 
     useEffect(() => {
         (async () => {
@@ -46,6 +47,8 @@ export const AuthProvider = ({children}) => {
 
             await currentUser();
 
+            await handleCountNotifications()
+
             // await SecureStore.setItemAsync(API_KEY, response.data.access_token)
 
             return response;
@@ -72,13 +75,23 @@ export const AuthProvider = ({children}) => {
         return response.data
     }
 
+    const handleCountNotifications = async () => {
+        const response = await axios.get(`${API_URL}/user/notifications/count`)
+
+        setCountNotifications(response.data)
+
+        return response.data
+    }
+
     const value = {
         onRegister: register,
         onLogin: login,
         onLogout: logout,
         currentUser: currentUser,
+        handleCountNotifications: handleCountNotifications,
         authState,
-        user
+        user,
+        countNotifications
     };
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }

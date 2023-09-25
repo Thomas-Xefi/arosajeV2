@@ -15,10 +15,15 @@ export function Conversations() {
             setConversations(result.data)
         })()
     }, []);
+
+    const markAsRead = (messageId) => {
+        axios.post(`${API_URL}/user/notifications/${messageId}/read`);
+    }
+
     return (
         <>
             <View style={{flex: 1}}>
-                <ConversationsList conversations={conversations} />
+                <ConversationsList conversations={conversations} markAsRead={markAsRead} />
             </View>
         </>
     )
