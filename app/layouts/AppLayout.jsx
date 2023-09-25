@@ -1,12 +1,13 @@
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {Home} from "../screens/app/Home";
 import {Ad} from "../screens/app/Ad";
-import {Social} from "../screens/app/Social";
+import {Conversation} from "../screens/app/Social/Conversation";
 import {PersonalsData} from "../screens/app/Account/PersonalsData";
 import Ionicons from "react-native-vector-icons/Ionicons"
 import {useAuth} from "../context/AuthContext";
 import {Button, ButtonIcon, ButtonText} from "@gluestack-ui/themed";
 import {AccountLayout} from "./AccountLayout";
+import {SocialLayout} from "./SocialLayout";
 
 export function AppLayout() {
     const Tab = createBottomTabNavigator()
@@ -30,7 +31,8 @@ export function AppLayout() {
                 <Tab.Screen name="Ad" component={Ad} options={{
                     tabBarIcon: () => { return <Ionicons name="add-circle-outline" size={28} color="black" /> }
                 }} />
-                <Tab.Screen name="Social" component={Social} options={{
+                <Tab.Screen name="Social" component={SocialLayout} options={{
+                    tabBarBadge: user && Object.keys(user).length > 0 && user.notifications_count,
                     tabBarIcon: () => { return <Ionicons name="chatbubbles-outline" size={28} color="black" /> }
                 }} />
                 <Tab.Screen name="Account" component={AccountLayout} options={{

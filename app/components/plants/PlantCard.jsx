@@ -9,7 +9,6 @@ export function PlantCard({plant}) {
     return (
         <>
             <Box style={styles.card}>
-                <Ionicons name={'ios-heart-outline'} size={20} color={'red'} style={{alignSelf: 'flex-end'}}/>
                 <Image style={{alignSelf: 'center', height: 100, width: 100}} borderRadius="$md" source={{uri: 'https://picsum.photos/700'}}/>
                 <Text style={{fontWeight: 'bold', fontSize: 17, marginTop: 10}}>{plant.name}</Text>
                 <View style={{flexDirection: 'row', justifyContent: 'space-between', marginTop: 5}}>

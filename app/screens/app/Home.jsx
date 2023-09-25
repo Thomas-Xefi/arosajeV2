@@ -2,7 +2,7 @@ import {useCallback, useEffect, useState} from "react";
 import {API_URL, useAuth} from "../../context/AuthContext";
 import {SafeAreaView, View} from "react-native";
 import {SpeciesList} from "../../components/species/SpeciesList";
-import {Icon, Input, InputField, InputIcon, SearchIcon, Text} from "@gluestack-ui/themed";
+import {Heading, Icon, Input, InputField, InputIcon, SearchIcon, Text} from "@gluestack-ui/themed";
 import {PlantsList} from "../../components/plants/PlantsList";
 import axios from "axios";
 import {debounce} from "lodash";
@@ -52,12 +52,12 @@ export function Home() {
                 </Input>
 
                 <View style={{marginTop: 16}}>
-                    <Text>Species</Text>
+                    <Heading size={'lg'}>Species</Heading>
                     <SpeciesList />
                 </View>
 
                 <View style={{marginTop: 16, flex: 1}}>
-                    <Text>Plants</Text>
+                    <Heading size={'lg'}>Plants</Heading>
                     <PlantsList plants={plants}/>
                 </View>
             </SafeAreaView>
