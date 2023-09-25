@@ -27,9 +27,9 @@ export function Login() {
         }
     }
 
-    useEffect(() => {
-        login()
-    }, [])
+    // useEffect(() => {
+    //     login()
+    // }, [])
     return (
         <>
             <SafeAreaView style={{margin: 16}}>

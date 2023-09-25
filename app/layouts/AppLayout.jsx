@@ -1,7 +1,6 @@
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {Home} from "../screens/app/Home";
 import {Ad} from "../screens/app/Ad";
-import {Conversation} from "../screens/app/Social/Conversation";
 import {PersonalsData} from "../screens/app/Account/PersonalsData";
 import Ionicons from "react-native-vector-icons/Ionicons"
 import {useAuth} from "../context/AuthContext";

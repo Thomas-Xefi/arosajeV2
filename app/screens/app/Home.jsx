@@ -51,10 +51,10 @@ export function Home() {
                     />
                 </Input>
 
-                <View style={{marginTop: 16}}>
-                    <Heading size={'lg'}>Species</Heading>
-                    <SpeciesList />
-                </View>
+                {/*<View style={{marginTop: 16}}>*/}
+                {/*    <Heading size={'lg'}>Species</Heading>*/}
+                {/*    <SpeciesList />*/}
+                {/*</View>*/}
 
                 <View style={{marginTop: 16, flex: 1}}>
                     <Heading size={'lg'}>Plants</Heading>
